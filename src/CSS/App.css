@@ -1,0 +1,214 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.half{
+  display:flex;
+  flex-direction: row;
+
+  height: 200vh;
+}
+.board{
+  position: sticky;
+  top:2%;
+  border: 2px solid black;
+  width:50vw;
+  height:80vh;
+}
+#resultText{
+  width: 100%;
+  font-size: large;
+  font-family: Serif;
+  border: 0;
+  resize: none;
+}
+.userBoard{
+  width:50vw;
+}
+
+.question{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  margin:auto;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  width:25vw;
+}
+
+.dropdown{
+  position: relative;
+  
+  border: 3px;
+  border-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dropdownMenu{
+  position: absolute;
+  top:20px;
+
+  margin: auto;
+  margin-bottom: 5px;
+  padding-top: 10px;
+
+  width:25vw;
+
+  border:2px solid black;
+  border-radius: 5px;
+  border-top: none;
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.dropdownButton{
+  z-index: 99;
+  border:2px solid black;
+  background-color: rgb(238, 238, 238);
+  height: 30px;
+}
+
+.dropdownItem{
+  margin-top: 3px;
+  background-color: transparent;
+  border: 0;
+  
+}
+
+.dropdownItem:hover{
+  background-color: #61dafb;
+}
+
+.addOption{
+  
+  margin-top: 20px;
+  width: fit-content;
+  background-color: transparent;
+  color: blue;
+  border: 0 
+}
+.addOption:hover{
+  font-weight: 600;
+}
+
+.grayScreen{
+  z-index: 400;
+  display:flex;
+  position: fixed;
+  left: 0;
+  top:0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(220, 220, 220, 0.789);
+}
+
+.popupWindow{
+  position: relative;
+
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  margin:auto;
+  height:40vh;
+  width:70vw;
+  background-color: white;
+  
+  border-radius: 7px;
+}
+
+.popupWindow h2{
+  margin-left: 45px;
+}
+
+.popupClose{
+  position:absolute;
+  border: none;
+  left: 95%;
+  top: 0%;
+  background-color: transparent;
+  border-radius:7px;
+}
+.popupClose:hover{
+  font-weight: 600;
+}
+
+#inputForms{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  transition-duration: 0ms;
+}
+
+#submitButton{
+  background-color: transparent;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 25px;
+  border-radius: 5px;
+  
+}
+
+#submitButton:hover{
+  background-color: aqua;
+}
+
+@media only screen and (max-width: 600px) {
+
+  #inputForms{flex-direction: column;
+  margin: auto;}
+
+  
+}
+
+#signOutButton{
+  position: fixed;
+  top:2%;
+  left:2%;
+  font-size: smaller;
+  padding: 5px;
+}

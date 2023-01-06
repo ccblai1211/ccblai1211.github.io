@@ -119,8 +119,8 @@ const ItemButton = (props) => {
       {/* item selection button */}
       <button
         className="dropdownItem"
-        onClick={(e) => {
-          props.selectionController.setSelection(
+        onClick={async (e) => {
+          await props.selectionController.setSelection(
             props.item.key,
             props.item.description
           );

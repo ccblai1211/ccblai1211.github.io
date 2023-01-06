@@ -1,32 +1,43 @@
 import { TextAreaField } from "@aws-amplify/ui-react";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { SelectionControllerDistributor } from "../Controller/user_selection_controller";
 import { template } from "../Model/boardTemplate";
 
-function ResultBoard() {
+function ResultBoard({reload}) {
+
+  const [result, setResult] = useState(template)
+
+  useEffect(()=>{
+    rephrase()
+  },[reload])
+  
   return (
     <TextAreaField
       id="resultText"
-      value={rephrase()}
+      value={result}
       onChange={() => {}}
     ></TextAreaField>
   );
+
+  async function rephrase() {
+    var newResult = template;
+    for (const selectionController in SelectionControllerDistributor.selectionControllers) {
+      if (SelectionControllerDistributor.selectionControllers[selectionController].isSelected) {
+        await SelectionControllerDistributor.selectionControllers[selectionController].processDescription().then(()=>{
+          newResult = newResult.replaceAll(
+            "$" + selectionController,
+            SelectionControllerDistributor.selectionControllers[selectionController]
+              .resultDescription
+          );
+        })
+      }
+    }
+    // console.log(newResult);
+    setResult(newResult);
+  }
 }
 
-function rephrase() {
-  var newResult = template;
-  for (const selectionController in SelectionControllerDistributor.selectionControllers) {
-    if (SelectionControllerDistributor.selectionControllers[selectionController].isSelected) {
-      newResult = newResult.replaceAll(
-        "$" + selectionController,
-        SelectionControllerDistributor.selectionControllers[selectionController]
-          .resultDescription
-      );
-    }
-  }
-  // console.log(newResult);
-  return newResult;
-}
+
 
 export default ResultBoard;
 

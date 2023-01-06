@@ -5,10 +5,7 @@ import DropDown from "./question_block.js";
 import ResultBoard from "./ResultBoard";
 import { API, Storage, Auth } from "aws-amplify";
 import { ClipLoader } from "react-spinners";
-import {
-  Button,
-  withAuthenticator,
-} from "@aws-amplify/ui-react";
+import { Button, withAuthenticator } from "@aws-amplify/ui-react";
 
 import { listNotes } from "../graphql/queries";
 import {
@@ -16,26 +13,43 @@ import {
   deleteNote as deleteNoteMutation,
 } from "../graphql/mutations";
 
-import { fetchNotes, DatabaseController } from "../Controller/DatabaseController";
-
+import {
+  fetchNotes,
+  DatabaseController,
+} from "../Controller/DatabaseController";
 
 const App = ({ signOut }) => {
   var order = 199;
   var databaseController;
-  const infoList = ["Name", "Address","Company Name", "Company Address", "Applying Position", "Job Platform", "Current Position", "Current Company", "Education", "Short Experience", "Company Information" , "My Goal", "Experience #1", "Experience #2", "Conclusion"];
+  const infoList = [
+    "Name",
+    "Phone",
+    "Email",
+    "Address",
+    "Company Name",
+    "Company Address",
+    "Applying Position",
+    "Job Platform",
+    "Current Position",
+    "Current Company",
+    "Education",
+    "Short Experience",
+    "Company Information",
+    "My Goal",
+    "Experience #1",
+    "Experience #2",
+    "Conclusion",
+  ];
   const [notes, setNotes] = useState({});
   const [reload, setReload] = useState(false);
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    Auth.currentUserInfo().then(async(user) => {
+    Auth.currentUserInfo().then(async (user) => {
       databaseController = DatabaseController.get(user.attributes.email);
       databaseController.setup(setNotes, setLoading);
       await databaseController.fetchData();
     });
-
   }, []);
-
-  
 
   return (
     <div className="half">
@@ -45,36 +59,36 @@ const App = ({ signOut }) => {
             <DropDown
               key={i}
               itemList={notes[attribute] == undefined ? [] : notes[attribute]}
-              databaseController = {databaseController}
+              databaseController={databaseController}
               cate={attribute}
               precedence={order--}
               setNotes={setNotes}
               reload={reload}
               setReload={setReload}
             />
-            
           );
         })}
         <Button id="signOutButton" onClick={signOut}>
           Sign Out
         </Button>
-        
-      
       </div>
       <div className="board">
-        <ResultBoard orderList = {infoList}/>
+        <ResultBoard reload = {reload} />
       </div>
-      <LoadingScreen shown = {loading}/>
+      <LoadingScreen shown={loading} />
     </div>
   );
 };
 
-const LoadingScreen = (props)=>{
-  return <div className="grayScreen"
-  style={{ display: props.shown ? "flex" : "none" }}>
-    <ClipLoader className = {"popupWindow"} color={"#36d7b7"} loading = {true}/>
-  </div>
-  
-}
+const LoadingScreen = (props) => {
+  return (
+    <div
+      className="grayScreen"
+      style={{ display: props.shown ? "flex" : "none" }}
+    >
+      <ClipLoader className={"popupWindow"} color={"#36d7b7"} loading={true} />
+    </div>
+  );
+};
 
 export default withAuthenticator(App);

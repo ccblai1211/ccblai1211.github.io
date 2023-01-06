@@ -1,5 +1,3 @@
-import {createNote} from"./Database.js"
-
 export class InputController{
 
     constructor (tag){
@@ -21,11 +19,7 @@ export class InputController{
     setDescription(description){
         this.description = description;
     }
-    async submitToAWS(){
-        if(this.tag != "" && this.description != ""){
-            await createNote( this.cate, this.tag, this.description)
-        }
-    }
+    
     resetData(){
         this.tag = "";
         this.description = "";

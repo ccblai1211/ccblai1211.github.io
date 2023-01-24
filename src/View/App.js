@@ -52,8 +52,8 @@ const App = ({ signOut }) => {
   }, []);
 
   return (
-    <div className="half">
-      <div className="userBoard">
+    <div class = "half">
+      <div class= "userBoard">
         {infoList.map((attribute, i) => {
           return (
             <DropDown

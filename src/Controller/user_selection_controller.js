@@ -48,7 +48,6 @@ export class SelectionController {
       }
       match = await this.regex.exec(newDescription);
     }
-    console.log(newDescription)
     this.resultDescription = newDescription;
   }
 }

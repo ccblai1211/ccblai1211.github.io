@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage":"http://ccblai1211.github.io",
+  "homepage": "http://ccblai1211.github.io",
   "dependencies": {
     "@aws-amplify/ui-react": "^4.2.0",
     "@rsuite/icons": "^1.0.2",
@@ -15,6 +15,7 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.7",
     "rsuite": "^5.24.0",
+    "typed.js": "^2.0.12",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -44,6 +45,7 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^5.0.0"
+    "gh-pages": "^5.0.0",
+    "react-router-dom": "^6.8.0"
   }
 }

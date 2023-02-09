@@ -1,0 +1,187 @@
+/*------------------------------------------------------------------
+    Version: 1.0
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+    IMPORT FONTS
+-------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700');
+
+/*------------------------------------------------------------------
+    IMPORT FILES
+-------------------------------------------------------------------*/
+
+@import url(./animate.css);
+/* @import url(./camera.css); */
+
+/* @import url(./flaticon.css); */
+/* @import url(./prettyPhoto.css); */
+/* @import url(./owl.carousel.css); */
+
+/*------------------------------------------------------------------
+    SKELETON
+-------------------------------------------------------------------*/
+
+body {
+    /* color: #999999; */
+    margin: 0;
+    font-size: 14px;
+    font-family: 'Roboto Mono', monospace;
+    line-height: 1.80857;
+    /* padding:0; */
+}
+
+html, body{
+	height: 100%;
+}
+
+h1{
+    text-transform: uppercase;
+    font-size:36px;
+}
+h3{
+    font-size:28px;
+    font-weight: 400;
+}
+h4{
+    margin: 10px auto 0px auto
+}
+p{
+    font-size: medium;
+}
+
+.navigationBar{
+    /* background-color: gray; */
+    display:flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    padding-left: 10px;
+    padding-top:5px;
+    padding-right: 5%;
+}
+
+.rowItems{
+    width: 50%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.navItems{
+    font-size:medium;
+    color:white;
+
+}
+
+.navItems a{
+    color:white;
+}
+
+.page{
+    display:flex;
+
+    background-color: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    color: rgb(222, 222, 222);
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+
+    padding: 40px;
+}
+
+.introContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: center;
+    text-align: left;
+}
+
+.profilePic{
+    margin:auto;
+    margin-left: 100px;
+    object-fit: contain;
+}
+
+.flexText{
+    margin:auto;
+}
+.portfolioPage{
+    display:flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: space-around;
+    width: 100%;
+}
+.summary-block{
+    
+    display:flex;
+    flex-direction: column;
+    
+    
+    width: 250px;
+    height: 350px;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: rgb(163, 163, 163);
+
+    margin:auto 15px auto 15px;
+    overflow: hidden;
+}
+
+.summary-block div{
+    overflow: hidden;
+}
+.summary-block .flexText{
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack:start;
+    -webkit-box-align: start;
+
+    margin: 0px 6px 0px 6px;
+    
+}
+.summary-block .flexText a{
+    display: contents;
+}
+
+
+.summary-block p{
+    margin-top: 11px;
+    text-align: left;
+}
+
+.summary-block span{
+    align-self: flex-start;
+    margin-left: 6px;
+}
+
+.summary-block img{
+    max-width: 100%;
+    
+}
+
+.contactPage{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-self: center;
+    text-align: left;
+}

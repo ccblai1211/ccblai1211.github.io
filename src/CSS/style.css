@@ -6,22 +6,17 @@
     IMPORT FONTS
 -------------------------------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400,500,700');
 
 /*------------------------------------------------------------------
     IMPORT FILES
 -------------------------------------------------------------------*/
 
-@import url(./animate.css);
-/* @import url(./camera.css); */
-
-/* @import url(./flaticon.css); */
-/* @import url(./prettyPhoto.css); */
-/* @import url(./owl.carousel.css); */
 
 /*------------------------------------------------------------------
     SKELETON
 -------------------------------------------------------------------*/
+
+@import "@aws-amplify/ui-react/styles.css";
 
 body {
     /* color: #999999; */
@@ -29,7 +24,6 @@ body {
     font-size: 14px;
     font-family: 'Roboto Mono', monospace;
     line-height: 1.80857;
-    /* padding:0; */
 }
 
 html, body{
@@ -51,6 +45,10 @@ p{
     font-size: medium;
 }
 
+a, a:visited, a:hover, a:active {
+    color: rgb(132, 132, 228);
+  }
+
 .navigationBar{
     /* background-color: gray; */
     display:flex;
@@ -66,6 +64,10 @@ p{
     padding-top:5px;
     padding-right: 5%;
 }
+
+.pointer-link {
+    cursor: pointer;
+  }
 
 .rowItems{
     width: 50%;
@@ -91,6 +93,7 @@ p{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    background-color: rgb(66, 66, 66);
 
     color: rgb(222, 222, 222);
     justify-content: center;
@@ -154,12 +157,10 @@ p{
     -webkit-box-orient: vertical;
     -webkit-box-pack:start;
     -webkit-box-align: start;
+    
 
     margin: 0px 6px 0px 6px;
     
-}
-.summary-block .flexText a{
-    display: contents;
 }
 
 
@@ -178,10 +179,50 @@ p{
     
 }
 
-.contactPage{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-self: center;
-    text-align: left;
+.half {
+    width: 50%;
 }
+
+.leftBox{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.contactInfo{
+    display:flex;
+    flex-direction: row;
+    height:50px;
+    width: 350px;
+    justify-content:flex-start;
+    align-self:center ;
+
+    margin:auto;
+    margin-top:30px;
+}
+
+.contactInfo a{
+    margin:auto;
+    margin-left: 15px;
+}
+.contactInfo p{
+
+    margin:auto;
+}
+
+.contactInfo img{
+    size: 50px 50px;
+}
+
+
+
+.amplify-button{
+    --amplify-components-button-hover-background-color:blue;
+}
+
+
+
+
+
+

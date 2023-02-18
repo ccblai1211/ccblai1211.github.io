@@ -1,23 +1,59 @@
 import React, { useRef, createRef, useEffect, forwardRef } from "react";
-import {Link, Route, Routes} from "react-router-dom"
+import { Link, Route, Routes } from "react-router-dom";
 import Typed from "typed.js";
 import useScrollBlock from "../utility/useScrollBlock";
 import ProjectBlock from "./ProjectBlock";
 import PortfolioController from "../Controller/portfolioController.js";
+import {
+  TextField,
+  TextAreaField,
+  Button,
+  useTheme,
+} from "@aws-amplify/ui-react";
+
 // CSS
 import "../CSS/style.css";
-import "../CSS/wording.css";
+// import '@aws-amplify/ui-react/styles.css';
 // images
 import logo from "../asset/images/brian_logo_nameOnly.png";
 import homePortrait from "../asset/images/home_portrait.png";
 import introPortrait from "../asset/images/intro_portrait.png";
-import BCSC_logo from "../asset/images/BCSC-logo_high.PNG";
+import TwitterIcon from "../asset/images/twitter_icon.png";
+import GithubIcon from "../asset/images/github_icon.png";
+// import FacebookIcon from "../asset/images/facebook_icon.png";
+import LinkedinIcon from "../asset/images/linkedin_icon.png";
+import GmailIcon from "../asset/images/gmail_icon.png";
+import { border, borderRadius, fontSize, maxWidth } from "@mui/system";
 
 const HomePage = () => {
   // define an element for animation typing text
   const el = useRef(null);
   const typed = useRef(null);
   // const [blockScroll, allowScroll] = useScrollBlock();
+
+  const { tokens } = useTheme();
+  const textFieldTheme = {
+    backgroundColor: `${tokens.colors.neutral[80]}`,
+    borderRadius: "10px",
+    border: "",
+    fontSize: "12pt",
+    textAlign: "left",
+    maxWidth: "300px",
+    minWidth: "200px",
+    margin: "10px auto 10px auto",
+    placeholder: "white",
+  };
+
+  const textFieldAreaTheme = {
+    backgroundColor: `${tokens.colors.neutral[80]}`,
+    borderRadius: "10px",
+    fontSize: "12pt",
+    textAlign: "left",
+    minWidth: "300px",
+    maxWidth: "600px",
+    margin: "10px auto 10px auto",
+    height: "300px",
+  };
 
   const portfolioController = new PortfolioController();
 
@@ -26,7 +62,7 @@ const HomePage = () => {
     Home: useRef(null),
     "About Me": useRef(null),
     Portfolio: useRef(null),
-    Blog: useRef(null),
+    // Blog: useRef(null),
     "Contact Me": useRef(null),
   };
 
@@ -153,20 +189,50 @@ const HomePage = () => {
                 image={projects[key].picture}
                 title={projects[key].title}
                 summary={projects[key].description}
-                routeName = {key}
+                routeName={key}
               />
             );
           })}
-       
         </div>
       </Page>
       {/* Blog Page */}
-      <Page ref={pageRefs["Blog"]}>Blog Page</Page>
+      {/* <Page ref={pageRefs["Blog"]}>Blog Page</Page> */}
       {/* Contact Page */}
       <Page ref={pageRefs["Contact"]}>
-        <div className="contactPage">
-          <div>haha</div>
-          <div>second</div>
+        <div className="half leftBox">
+          <h2>Contact Me</h2>
+          <TextField inputStyles={textFieldTheme} placeholder="Name" />
+          <TextField inputStyles={textFieldTheme} placeholder="Email" />
+          <TextAreaField
+            inputStyles={textFieldAreaTheme}
+            placeholder="message"
+            width="75%"
+          />
+          <Button size="large" style={{margin: "10px 0 10px 0"}}>
+            <h2 style={{color:"white",margin:"0" }}>Send</h2>
+          </Button>
+        </div>
+        <div className="half">
+          <ContactInfo
+            image={TwitterIcon}
+            urlAppear="@ccblai"
+            url="https://twitter.com/ccblai"
+          />
+          <ContactInfo
+            image={GithubIcon}
+            urlAppear="https://github.com/ccblai1211"
+            url="https://github.com/ccblai1211"
+          />
+          <ContactInfo
+            image={LinkedinIcon}
+            urlAppear="www.linkedin.com/in/brian-lai-ccb"
+            url="http://linkedin.com/in/brian-lai-ccb"
+          />
+          <ContactInfo
+            image={GmailIcon}
+            urlAppear="ccblai1211@gmail.com"
+            url="mailto:ccblai1211@gmail.com"
+          />
         </div>
       </Page>
 
@@ -177,20 +243,24 @@ const HomePage = () => {
       >
         <div className="navigationBar">
           {/* banner logo */}
-          <a href="#page-top">
-            <img src={logo} alt="" width="100px" />
+          <a className="pointer-link">
+            <img
+              src={logo}
+              alt=""
+              onClick={() => scrollToPage(pageRefs["Home"])}
+              width="100px"
+            />
           </a>
           {/* Navigation buttons */}
           <ul className="rowItems navItems">
             {Object.keys(pageRefs).map((title, index) => (
               <li key={index} onClick={() => scrollToPage(pageRefs[title])}>
-                <a href="">{title}</a>
+                <a className="pointer-link">{title}</a>
               </li>
             ))}
           </ul>
         </div>
       </nav>
-      
     </>
   );
 };
@@ -209,5 +279,16 @@ const Page = forwardRef((props, ref) => {
     </div>
   );
 });
+
+const ContactInfo = (props) => {
+  return (
+    <div className="contactInfo">
+      <img src={props.image}></img>
+      <a href={props.url}>
+        <p>{props.urlAppear}</p>
+      </a>
+    </div>
+  );
+};
 
 export default HomePage;

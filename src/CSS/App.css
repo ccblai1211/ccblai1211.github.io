@@ -1,3 +1,6 @@
+html{
+  color: #999999;
+}
 .App {
   text-align: center;
 }
@@ -43,7 +46,7 @@ button {
   white-space: nowrap;
 }
 
-.half{
+.flexRow{
   display:flex;
   flex-direction: row;
 

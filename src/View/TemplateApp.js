@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect} from "react";
 import "../CSS/App.css";
 import "@aws-amplify/ui-react/styles.css";
 import DropDown from "./question_block.js";
 import ResultBoard from "./ResultBoard";
-import { API, Storage, Auth } from "aws-amplify";
+import { Auth } from "aws-amplify";
 import { ClipLoader } from "react-spinners";
 import { Button, withAuthenticator } from "@aws-amplify/ui-react";
 
@@ -52,8 +52,8 @@ const TemplateApp = ({ signOut }) => {
   }, []);
 
   return (
-    <div class = "half">
-      <div class= "userBoard">
+    <div className = "flexRow">
+      <div className= "userBoard">
         {infoList.map((attribute, i) => {
           return (
             <DropDown

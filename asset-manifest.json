@@ -1,13 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.9e7c6655.css",
-    "main.js": "/static/js/main.022fb995.js",
+    "main.css": "/static/css/main.4da4a20f.css",
+    "main.js": "/static/js/main.db3b4a89.js",
+    "static/media/intro_portrait.png": "/static/media/intro_portrait.c8c764cf5ab91535a8a7.png",
+    "static/media/BCSC-logo_high.PNG": "/static/media/BCSC-logo_high.3a8ea87d24d44d0de91f.PNG",
+    "static/media/home_portrait.png": "/static/media/home_portrait.093171d05c6eff3e9547.png",
+    "static/media/doc_temp.jpg": "/static/media/doc_temp.97e0f0bf0bde2452b0f9.jpg",
+    "static/media/gmail_icon.png": "/static/media/gmail_icon.d2c07f0625911ee67b6c.png",
+    "static/media/linkedin_icon.png": "/static/media/linkedin_icon.342990819a165a641d4b.png",
     "index.html": "/index.html",
-    "main.9e7c6655.css.map": "/static/css/main.9e7c6655.css.map",
-    "main.022fb995.js.map": "/static/js/main.022fb995.js.map"
+    "main.4da4a20f.css.map": "/static/css/main.4da4a20f.css.map",
+    "main.db3b4a89.js.map": "/static/js/main.db3b4a89.js.map"
   },
   "entrypoints": [
-    "static/css/main.9e7c6655.css",
-    "static/js/main.022fb995.js"
+    "static/css/main.4da4a20f.css",
+    "static/js/main.db3b4a89.js"
   ]
 }
